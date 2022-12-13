@@ -33,6 +33,8 @@ function singleRound(playerSelection, computerSelection) {
   }
 }
 
+//Function that runs the game 5 times, determines a winner and logs to console
+//who won the game.
 function game() {
   for (let i = 0; i < 5; i++) {
     singleRound(computerSelection, playerSelection);
