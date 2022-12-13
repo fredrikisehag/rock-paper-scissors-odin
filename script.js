@@ -2,6 +2,8 @@
 const choiceArray = ["rock", "paper", "scissor"];
 let computerSelection = "scissors";
 const playerSelection = prompt("Choose Your Weapon: Rock, Paper or Scissors?");
+let computerScore = 0;
+let playerScore = 0;
 
 //Function that returns a random computer choice.
 function getComputerChoice() {
@@ -28,5 +30,11 @@ function singleRound(playerSelection, computerSelection) {
     return "You win! Scissors beats Paper!";
   } else if (playerSelection == "paper" && computerSelection == "rock") {
     return "You win! Paper beats Rock!";
+  }
+}
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    singleRound(computerSelection, playerSelection);
   }
 }
