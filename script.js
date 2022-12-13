@@ -1,7 +1,9 @@
 //Array of the different choices for computer.
 const choiceArray = ["rock", "paper", "scissor"];
-let computerSelection = "rock";
-const playerSelection = prompt("Choose Your Weapon: Rock, Paper or Scissors?");
+let computerSelection = getComputerChoice(choiceArray);
+let playerSelection = prompt(
+  "Choose Your Weapon: Rock, Paper or Scissors?"
+).toLowerCase();
 let computerScore = 0;
 let playerScore = 0;
 
@@ -12,9 +14,6 @@ function getComputerChoice() {
 
 //Plays a single round of Rock Paper Scissors.
 function singleRound(playerSelection, computerSelection) {
-  // computerSelection = getComputerChoice(choiceArray);
-  playerSelection = playerSelection.toLowerCase();
-
   //Declares winner variable
   let roundWinner;
 
@@ -52,9 +51,17 @@ function singleRound(playerSelection, computerSelection) {
 //who won the game.
 function game() {
   for (let i = 0; i < 5; i++) {
-    singleRound(computerSelection, playerSelection);
+    singleRound(playerSelection, computerSelection);
+    console.log(`ComputerScore: ${computerScore}`);
+    console.log(`PlayerScore: ${playerScore}`);
+  }
+  if (computerScore > playerScore) {
+    console.log(`Computer Wins! You Lose!`);
+  } else if (computerScore < playerScore) {
+    console.log(`You win! Computer Lose!`);
+  } else {
+    console.log(`It's a draw!`);
   }
 }
-console.log(singleRound(playerSelection, computerSelection));
-console.log(`ComputerScore: ${computerScore}`);
-console.log(`PlayerScore: ${playerScore}`);
+
+game();
