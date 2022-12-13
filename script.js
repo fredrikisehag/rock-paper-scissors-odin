@@ -1,6 +1,6 @@
 //Array of the different choices for computer.
 const choiceArray = ["rock", "paper", "scissor"];
-let computerSelection = "scissors";
+let computerSelection = "rock";
 const playerSelection = prompt("Choose Your Weapon: Rock, Paper or Scissors?");
 let computerScore = 0;
 let playerScore = 0;
@@ -15,20 +15,35 @@ function singleRound(playerSelection, computerSelection) {
   // computerSelection = getComputerChoice(choiceArray);
   playerSelection = playerSelection.toLowerCase();
 
+  //Declares winner variable
+  let roundWinner;
+
   //Function that determine the winner of the game!
   if (computerSelection === playerSelection) {
     return `It's a tie, you both chose ${playerSelection}!`;
   } else if (computerSelection == "rock" && playerSelection == "scissors") {
+    roundWinner = "computer";
+    ++computerScore;
     return `You lose! Rock beats Scissors!`;
   } else if (computerSelection == "scissors" && playerSelection == "paper") {
+    roundWinner = "computer";
+    ++computerScore;
     return `You lose! Scissors beats Paper!`;
   } else if (computerSelection == "paper" && playerSelection == "rock") {
+    roundWinner = "computer";
+    ++computerScore;
     return `You lose! Paper beats Rock!`;
   } else if (playerSelection == "rock" && computerSelection == "scissors") {
+    roundWinner = "player";
+    ++playerScore;
     return `You win! Rock beats Scissors!`;
   } else if (playerSelection == "scissors" && computerSelection == "paper") {
+    roundWinner = "player";
+    ++playerScore;
     return "You win! Scissors beats Paper!";
   } else if (playerSelection == "paper" && computerSelection == "rock") {
+    roundWinner = "player";
+    ++playerScore;
     return "You win! Paper beats Rock!";
   }
 }
@@ -40,3 +55,6 @@ function game() {
     singleRound(computerSelection, playerSelection);
   }
 }
+console.log(singleRound(playerSelection, computerSelection));
+console.log(`ComputerScore: ${computerScore}`);
+console.log(`PlayerScore: ${playerScore}`);
