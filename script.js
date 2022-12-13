@@ -15,7 +15,7 @@ function singleRound(playerSelection, computerSelection) {
   // computerSelection = getComputerChoice(choiceArray);
   playerSelection = playerSelection.toLowerCase();
 
-  //Function that determine the winne of the game!
+  //Function that determine the winner of the game!
   if (computerSelection === playerSelection) {
     return `It's a tie, you both chose ${playerSelection}!`;
   } else if (computerSelection == "rock" && playerSelection == "scissors") {
