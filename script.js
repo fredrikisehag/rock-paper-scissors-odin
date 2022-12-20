@@ -27,18 +27,21 @@ rockBtn.addEventListener('click', () => {
   playerSelection = 'rock';
   computerSelection = getComputerChoice();
   playRound(playerSelection, computerSelection);
+  declareWinner();
 });
 
 paperBtn.addEventListener('click', () => {
   playerSelection = 'paper';
   computerSelection = getComputerChoice();
   playRound(playerSelection, computerSelection);
+  declareWinner();
 });
 
 scissorsBtn.addEventListener('click', () => {
   playerSelection = 'scissors';
   computerSelection = getComputerChoice();
   playRound(playerSelection, computerSelection);
+  declareWinner();
 });
 
 //Function that plays one round of Rock Paper Scissors and declares winner of round:
@@ -65,6 +68,17 @@ function playRound(playerSelection, computerSelection) {
     computerScoreBoard.textContent = `ComputerScore: ${computerScore}`;
   } else if (computerSelection === playerSelection) {
     return `It's a draw! You both choosed ${playerSelection}`;
+  }
+}
+
+//Function that declares winner after 5 points reached:
+function declareWinner() {
+  if (playerScore === 5) {
+    let h2 = document.createElement('h2');
+    h2.textContent = `You win! You beat the computer ${playerScore} to ${computerScore}`;
+  } else if (computerScore === 5) {
+    let h2 = document.createElement('h2');
+    h2.textContent = `You lost! Computer beat you ${computerScore} to ${playerScore}`;
   }
 }
 
