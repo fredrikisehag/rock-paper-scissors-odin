@@ -84,13 +84,13 @@ function playRound(playerSelection, computerSelection) {
 function declareWinner() {
   if (playerScore === 5) {
     let h2 = document.createElement('h2');
-    h2.textContent = `You win! You beat the computer ${playerScore} to ${computerScore}`;
+    h2.textContent = `You win! You beat the computer ${playerScore} to ${computerScore}!`;
     container.appendChild(h2);
     removeChoices();
     endGame();
   } else if (computerScore === 5) {
     let h2 = document.createElement('h2');
-    h2.textContent = `You lost! Computer beat you ${computerScore} to ${playerScore}`;
+    h2.textContent = `You lost! Computer beat you ${computerScore} to ${playerScore}!`;
     container.appendChild(h2);
     removeChoices();
     endGame();
