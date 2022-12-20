@@ -8,6 +8,7 @@ const scissorsBtn = document.querySelector('.scissors-btn');
 const playerScoreBoard = document.querySelector('.player-score-board');
 const computerScoreBoard = document.querySelector('.computer-score-board');
 const container = document.querySelector('.container');
+const roundWinner = document.querySelector('.round-winner');
 
 //Declare variables that will be used later in game:
 let playerSelection;
@@ -51,24 +52,31 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection == 'rock' && computerSelection == 'scissors') {
     playerScore++;
     playerScoreBoard.textContent = `PlayerScore: ${playerScore}`;
+    roundWinner.textContent = 'You won, rock crushes scissors!';
   } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
     playerScore++;
     playerScoreBoard.textContent = `PlayerScore: ${playerScore}`;
+    roundWinner.textContent = 'You won! Scissors cuts paper!';
   } else if (playerSelection == 'paper' && computerSelection == 'rock') {
     playerScore++;
     playerScoreBoard.textContent = `PlayerScore: ${playerScore}`;
+    roundWinner.textContent = 'You won! Paper kills rock!';
+
     //If computer wins:
   } else if (computerSelection == 'rock' && playerSelection == 'scissors') {
     computerScore++;
     computerScoreBoard.textContent = `ComputerScore: ${computerScore}`;
+    roundWinner.textContent = 'You lose! Rock smashes scissors!';
   } else if (computerSelection == 'scissors' && playerSelection == 'paper') {
     computerScore++;
     computerScoreBoard.textContent = `ComputerScore: ${computerScore}`;
+    roundWinner.textContent = 'You lost! Scissors cuts paper!';
   } else if (computerSelection == 'paper' && playerSelection == 'rock') {
     computerScore++;
     computerScoreBoard.textContent = `ComputerScore: ${computerScore}`;
+    roundWinner.textContent = 'You lost! Paper beats rock!';
   } else if (computerSelection === playerSelection) {
-    return `It's a draw! You both choosed ${playerSelection}`;
+    roundWinner.textContent = `It's a draw! You both choosed ${playerSelection}`;
   }
 }
 
@@ -94,6 +102,7 @@ function removeChoices() {
   rockBtn.remove();
   paperBtn.remove();
   scissorsBtn.remove();
+  roundWinner.textContent = '';
 }
 
 //Function that ends game and the possibility to run again:
