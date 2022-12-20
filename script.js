@@ -7,6 +7,7 @@ const paperBtn = document.querySelector('.paper-btn');
 const scissorsBtn = document.querySelector('.scissors-btn');
 const playerScoreBoard = document.querySelector('.player-score-board');
 const computerScoreBoard = document.querySelector('.computer-score-board');
+const container = document.querySelector('.container');
 
 //Declare variables that will be used later in game:
 let playerSelection;
@@ -76,10 +77,34 @@ function declareWinner() {
   if (playerScore === 5) {
     let h2 = document.createElement('h2');
     h2.textContent = `You win! You beat the computer ${playerScore} to ${computerScore}`;
+    container.appendChild(h2);
+    removeChoices();
+    endGame();
   } else if (computerScore === 5) {
     let h2 = document.createElement('h2');
     h2.textContent = `You lost! Computer beat you ${computerScore} to ${playerScore}`;
+    container.appendChild(h2);
+    removeChoices();
+    endGame();
   }
+}
+
+//Function that removes choices buttons
+function removeChoices() {
+  rockBtn.remove();
+  paperBtn.remove();
+  scissorsBtn.remove();
+}
+
+//Function that ends game and the possibility to run again:
+function endGame() {
+  let restartButton = document.createElement('button');
+  restartButton.textContent = 'Play Again!';
+  container.appendChild(restartButton);
+
+  restartButton.addEventListener('click', () => {
+    window.location.reload();
+  });
 }
 
 //Function that plays a 5 round game that keeps score and reports a winner and looser
