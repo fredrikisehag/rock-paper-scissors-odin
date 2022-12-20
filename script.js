@@ -5,6 +5,8 @@ const choiceArray = ['rock', 'paper', 'scissors'];
 const rockBtn = document.querySelector('.rock-btn');
 const paperBtn = document.querySelector('.paper-btn');
 const scissorsBtn = document.querySelector('.scissors-btn');
+const playerScoreBoard = document.querySelector('.player-score-board');
+const computerScoreBoard = document.querySelector('.computer-score-board');
 
 //Declare variables that will be used later in game:
 let playerSelection;
@@ -24,40 +26,43 @@ function getComputerChoice() {
 rockBtn.addEventListener('click', () => {
   playerSelection = 'rock';
   computerSelection = getComputerChoice();
+  playRound(playerSelection, computerSelection);
 });
 
 paperBtn.addEventListener('click', () => {
   playerSelection = 'paper';
   computerSelection = getComputerChoice();
+  playRound(playerSelection, computerSelection);
 });
 
 scissorsBtn.addEventListener('click', () => {
   playerSelection = 'scissors';
   computerSelection = getComputerChoice();
+  playRound(playerSelection, computerSelection);
 });
 
 //Function that plays one round of Rock Paper Scissors and declares winner of round:
 function playRound(playerSelection, computerSelection) {
   //If player wins:
   if (playerSelection == 'rock' && computerSelection == 'scissors') {
-    ++playerScore;
-    return 'You won! Rock beats Scissors!';
+    playerScore++;
+    playerScoreBoard.textContent = `PlayerScore: ${playerScore}`;
   } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-    ++playerScore;
-    return 'You won! Scissors beats Paper!';
+    playerScore++;
+    playerScoreBoard.textContent = `PlayerScore: ${playerScore}`;
   } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-    ++playerScore;
-    return 'You won! Paper beats Rock!';
+    playerScore++;
+    playerScoreBoard.textContent = `PlayerScore: ${playerScore}`;
     //If computer wins:
   } else if (computerSelection == 'rock' && playerSelection == 'scissors') {
-    ++computerScore;
-    return 'You lost! Rock beats Scissors!';
+    computerScore++;
+    computerScoreBoard.textContent = `ComputerScore: ${computerScore}`;
   } else if (computerSelection == 'scissors' && playerSelection == 'paper') {
-    ++computerScore;
-    return 'You lost! Scissors beats Paper!';
+    computerScore++;
+    computerScoreBoard.textContent = `ComputerScore: ${computerScore}`;
   } else if (computerSelection == 'paper' && playerSelection == 'rock') {
-    ++computerScore;
-    return ' You lost! Paper beats Rock!';
+    computerScore++;
+    computerScoreBoard.textContent = `ComputerScore: ${computerScore}`;
   } else if (computerSelection === playerSelection) {
     return `It's a draw! You both choosed ${playerSelection}`;
   }
