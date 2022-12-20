@@ -1,5 +1,14 @@
 //Array storing computers different choices:
 const choiceArray = ['rock', 'paper', 'scissors'];
+
+//Grab buttons from HTML
+const rockBtn = document.querySelector('.rock-btn');
+const paperBtn = document.querySelector('.paper-btn');
+const scissorsBtn = document.querySelector('.scissors-btn');
+
+//Declare variables that will be used later in game:
+let playerSelection;
+
 //Variables to keep track of score in game:
 let computerScore = 0;
 let playerScore = 0;
@@ -8,6 +17,23 @@ let playerScore = 0;
 function getComputerChoice() {
   return choiceArray[Math.floor(Math.random() * choiceArray.length)];
 }
+
+//EventListeners on all three button choices:
+
+rockBtn.addEventListener('click', () => {
+  playerSelection = 'rock';
+  console.log(playerSelection);
+});
+
+paperBtn.addEventListener('click', () => {
+  playerSelection = 'paper';
+  console.log(playerSelection);
+});
+
+scissorsBtn.addEventListener('click', () => {
+  playerSelection = 'scissors';
+  console.log(playerSelection);
+});
 
 //Function that plays one round of Rock Paper Scissors and declares winner of round:
 function playRound(playerSelection, computerSelection) {
