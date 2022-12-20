@@ -8,6 +8,7 @@ const scissorsBtn = document.querySelector('.scissors-btn');
 
 //Declare variables that will be used later in game:
 let playerSelection;
+let computerSelection;
 
 //Variables to keep track of score in game:
 let computerScore = 0;
@@ -22,17 +23,17 @@ function getComputerChoice() {
 
 rockBtn.addEventListener('click', () => {
   playerSelection = 'rock';
-  console.log(playerSelection);
+  computerSelection = getComputerChoice();
 });
 
 paperBtn.addEventListener('click', () => {
   playerSelection = 'paper';
-  console.log(playerSelection);
+  computerSelection = getComputerChoice();
 });
 
 scissorsBtn.addEventListener('click', () => {
   playerSelection = 'scissors';
-  console.log(playerSelection);
+  computerSelection = getComputerChoice();
 });
 
 //Function that plays one round of Rock Paper Scissors and declares winner of round:
